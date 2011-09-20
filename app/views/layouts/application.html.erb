@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/mint-choc/jquery-ui.css" %>
+  <%= javascript_include_tag "jquery.min.js", "jquery.dataTables.min.js", "rails.js", "effects.js", "dragdrop.js", "controls.js", "application.js" %>
+  <%= csrf_meta_tag %>
+  <title>
+  TEMPLATE
+  </title>
+
+</head>
+<body>
+ <div id="user_nav">
+    <% if current_user %>
+      Logged in as <%= current_user.email %> |
+      <%= link_to "Log out", log_out_path %> |
+      <%= link_to "Templates", templates_path %>
+    <% else %>
+      <%= link_to "Sign up", sign_up_path %> or
+      <%= link_to "Log in", log_in_path %>
+    <% end %>
+  </div>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash#{name}" %>
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>

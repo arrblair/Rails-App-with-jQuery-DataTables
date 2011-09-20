@@ -1,0 +1,60 @@
+
+<br>
+
+
+<%= link_to 'New Template', new_template_path %>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<br />
+<br />
+<table class="display" id="templates">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+  <% @templates.each do |template| %>
+    <tr>
+      <td><%= template.title %></td>
+      <td><%= simple_format(template.body) %></td>
+      <td><%= template.description %></td>
+
+      
+
+      <td>
+        
+
+          <%= link_to 'Show', template %></td>
+        
+
+    </td>
+
+
+    <td>
+
+
+          <%= link_to 'Edit', edit_template_path(template) %>
+
+        
+        </td>
+        <td>
+          
+          
+            <%= button_to 'Destroy', template, :confirm => 'Are you sure?', :method => :delete %>
+
+          
+          </td>
+        <% end %>
+    </tr>
+  </tbody>
+</table>
